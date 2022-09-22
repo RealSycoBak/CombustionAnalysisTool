@@ -39,6 +39,6 @@ h6 {
   
   /* Add a color to the active/current link */
   .topnav a.active {
-    background-color: #100929;
+    background-color: rgb(16, 22, 27);
     color: white;
   }
