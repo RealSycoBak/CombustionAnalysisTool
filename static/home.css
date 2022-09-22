@@ -7,14 +7,18 @@ html, #Testing {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    
+}
+h1 {
     text-shadow: 2px 2px 5px white;
 }
 h6 {
     font-size: 16px;
 }
 .topnav {
-    background-color: #333;
-    overflow: hidden;
+    display: inline-block;
+    border-radius: 20px;
+    background: rgb(16, 22, 27)
   }
   
   /* Style the links inside the navigation bar */
