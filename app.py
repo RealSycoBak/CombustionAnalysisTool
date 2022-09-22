@@ -1,3 +1,4 @@
+import unittest
 from flask import Flask, redirect, url_for, render_template, request, flash
 
 app = Flask(__name__)
@@ -35,9 +36,18 @@ elements_dict = {'H' : 1.008,'HE' : 4.003, 'LI' : 6.941, 'BE' : 9.012,
 @app.route('/calculate', methods=['GET', 'POST'])
 def Calculate():
   if request.method == "POST":
-       test = request.form.get("Test")
-       return test
+       amount = request.form.get("AMT")
+       unit = request.form.get("UNT")
+       element = request.form.get("ELE")
+       return str(convert(amount, unit, element))
   return render_template("index.html")
+
+def convert(amount, unit, element):
+  if unit == "Grams":
+    return float(amount) * elements_dict[element]
+  else:
+    return float(amount) / elements_dict[element]
+    
 
 @app.route('/')
 def index():

@@ -14,18 +14,18 @@
     <title>Combustion Analysis Tool</title>
 </head>
 <body>
-    <div class="topnav">
-        <button onclick="topFunction()" id="myBtn">Home</button>
-        <a href="#about">About</a>
-    </div>
     <div class="title">
         <h1 id="main">Combustion Analysis Tool</h1>
         <h6 id="sub">Created by Alon Baker and Roee Weglein</h6>
     </div>
     <div class="calculator">
         <form action="/calculate" method="post">
-            <label for="Test">Test:</label>
-<input type="text" id="Testing" name="Test" placeholder="Test">
+            <label for="ELE">Element:</label>
+<input type="text" id="ELE" name="ELE" placeholder="HE">
+            <label for="AMT">Amount:</label>
+<input type="text" id="AMT" name="AMT" placeholder="5">
+            <label for="UNT">Unit:</label>
+<input type="text" id="UNT" name="UNT" placeholder="Grams">
 <button type="submit">Start Calculation</button>
         </form>
     </div>
