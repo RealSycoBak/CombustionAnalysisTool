@@ -1,5 +1,3 @@
-import unittest
-from xml.etree.ElementTree import ElementTree
 from flask import Flask, redirect, url_for, render_template, request, flash
 
 app = Flask(__name__)
@@ -41,19 +39,23 @@ def Calculate():
        waterMass = float(request.form.get("H2Omass"))
        carbonDioxideMass = float(request.form.get("CO2mass"))
        totalMass = float(request.form.get("TTmass"))
+
        molesCarbon = carbonDioxideMass / (elements_dict["C"]+(elements_dict["O"]*2))
        massCarbon = molesCarbon * elements_dict["C"] 
        molesHydrogen = (waterMass * 2) / (elements_dict["O"]+(elements_dict["H"]*2))
        massHydrogen = molesHydrogen* elements_dict["H"] 
        massOxygen = totalMass - massCarbon - massHydrogen
        molesOxygen = massOxygen / elements_dict["O"]
+
        least = 100000000000000
        for i in [molesHydrogen, molesCarbon, molesOxygen]:
         if i<least:
           least = i
-       FinalOxygen = str(int((molesOxygen/least) * 2)) #we need to make it to check if any of the numbers are .5 or a deciaml. So it knows when to round up or down or multiply all by 2.
-       FinalCarbon =str(int((molesCarbon/least) * 2))
-       FinalHydrogen = str(int((molesHydrogen/least) * 2))
+
+       FinalOxygen = str(int((molesOxygen/least))) #we need to make it to check if any of the numbers are .5 or a deciaml. So it knows when to round up or down or multiply all by 2.
+       FinalCarbon =str(int((molesCarbon/least)))
+       FinalHydrogen = str(int((molesHydrogen/least)))
+
        return "C" + FinalCarbon + "H" + FinalHydrogen + "O" + FinalOxygen
   return render_template("index.html")
     
