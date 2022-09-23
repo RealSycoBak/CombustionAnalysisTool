@@ -16,16 +16,20 @@
 <body>
     <div class="title">
         <h1 id="main">Combustion Analysis Tool</h1>
+        <h4 id="desc">"Determine the amount of Carbon, Hydrogen, and Oxygen in a combustible compound."</h6>
         <h6 id="sub">Created by Alon Baker and Roee Weglein</h6>
     </div>
     <div class="calculator">
+        <p style="color:blue; font-size: 25px; padding-top: 50px;">Reaction: CxHyOz + O2 -> H2O + CO2</p>
         <form action="/calculate" method="post">
-            <label for="ELE">Element:</label>
-<input type="text" id="ELE" name="ELE" placeholder="HE">
-            <label for="AMT">Amount:</label>
-<input type="text" id="AMT" name="AMT" placeholder="5">
-            <label for="UNT">Unit:</label>
-<input type="text" id="UNT" name="UNT" placeholder="Grams">
+            <label for="TTmass">Total Produced Mass:</label>
+<input type="text" id="TTmass" name="TTmass" placeholder="0">
+            <label for="CO2mass">CO2 Mass:</label>
+<input type="text" id="CO2mass" name="CO2mass" placeholder="0">
+            <label for="H2Omass">H2O Mass:</label>
+<input type="text" id="H2Omass" name="H2Omass" placeholder="0">
+
+ 
 <button type="submit">Start Calculation</button>
         </form>
     </div>
