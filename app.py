@@ -56,7 +56,7 @@ def Calculate():
        FinalCarbon =str(int((molesCarbon/least)))
        FinalHydrogen = str(int((molesHydrogen/least)))
 
-       return "C" + FinalCarbon + "H" + FinalHydrogen + "O" + FinalOxygen
+       return render_template("index.html", result="C" + FinalCarbon + "H" + FinalHydrogen + "O" + FinalOxygen)
   return render_template("index.html")
     
 
