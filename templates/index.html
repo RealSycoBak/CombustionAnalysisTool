@@ -9,30 +9,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link href="/static/home.css/" rel="stylesheet">
     <script src="/static/index.js/"></script>
-
-
     <title>Combustion Analysis Tool</title>
 </head>
 <body>
     <div class="title">
         <h1 id="main">Combustion Analysis Tool</h1>
-        <h4 id="desc">"Determine the amount of Carbon, Hydrogen, and Oxygen in a combustible compound."</h6>
-        <h6 id="sub">Created by Alon Baker and Roee Weglein</h6>
+        <h4 id="desc">Determine the amount of Carbon, Hydrogen, and Oxygen in a combustible compound.</h4>
+        <h6 id="sub">Created by Alon Baker, Roee Weglein, and Kaun Ide</h6>
     </div>
-    <div class="calculator">
-        <p style="color:blue; font-size: 25px; padding-top: 50px;">Reaction: CxHyOz + O2 -> H2O + CO2</p>
+    
+    <section class="calculator">
+        <p class="reaction-text">Reaction: CxHyOz + O<sub>2</sub> → H<sub>2</sub>O + CO<sub>2</sub></p>
         <form action="/calculate" method="post">
-            <label for="TTmass">Total Produced Mass:</label>
-<input type="text" id="TTmass" name="TTmass" placeholder="0">
-            <label for="CO2mass">CO2 Mass:</label>
-<input type="text" id="CO2mass" name="CO2mass" placeholder="0">
-            <label for="H2Omass">H2O Mass:</label>
-<input type="text" id="H2Omass" name="H2Omass" placeholder="0">
-
- 
-<button type="submit">Start Calculation</button>
+            <div class="form-group">
+                <label for="TTmass">Total Produced Mass (g):</label>
+                <input type="text" id="TTmass" name="TTmass" placeholder="Enter total mass" required>
+            </div>
+            <div class="form-group">
+                <label for="CO2mass">CO<sub>2</sub> Mass (g):</label>
+                <input type="text" id="CO2mass" name="CO2mass" placeholder="Enter CO2 mass" required>
+            </div>
+            <div class="form-group">
+                <label for="H2Omass">H<sub>2</sub>O Mass (g):</label>
+                <input type="text" id="H2Omass" name="H2Omass" placeholder="Enter H2O mass" required>
+            </div>
+            <button type="submit" class="calculate-btn">Start Calculation</button>
         </form>
-        <h4> Result {{result}}</h4>
-    </div>
+        <h4 class="result">Result: {{result}}</h4>
+    </section>
 </body>
 </html>
