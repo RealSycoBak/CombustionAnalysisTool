@@ -47,20 +47,36 @@ def Calculate():
        massOxygen = totalMass - massCarbon - massHydrogen
        molesOxygen = massOxygen / elements_dict["O"]
 
-       least = 100000000000000
-       for i in [molesHydrogen, molesCarbon, molesOxygen]:
-        if i<least:
-          least = i
+       least = min([molesHydrogen, molesCarbon, molesOxygen])
+        
+       deciOxygen = (float(molesOxygen/least)-(int((molesOxygen/least)))) 
+       deciCarbon = (float(molesCarbon/least)-(int((molesCarbon/least))))
+       deciHydrogen = (float(molesHydrogen/least)-(int((molesHydrogen/least))))
+      
+       if deciOxygen >= 0.5:
+           FinalOxygen = str(int((molesOxygen/least)) + 1)
+       else:
+           FinalOxygen = str(int((molesOxygen/least)))
+       if deciCarbon >= 0.5:
+           FinalCarbon = str(int((molesCarbon/least)) + 1)
+       else:
+           FinalCarbon = str(int((molesCarbon/least)))
+       if deciHydrogen >= 0.5:
+           FinalHydrogen = str(int((molesHydrogen/least)) + 1)
+       else:
+           FinalHydrogen = str(int((molesHydrogen/least)))
+    
 
-       FinalOxygen = str(int((molesOxygen/least))) #we need to make it to check if any of the numbers are .5 or a deciaml. So it knows when to round up or down or multiply all by 2.
-       FinalCarbon =str(int((molesCarbon/least)))
-       FinalHydrogen = str(int((molesHydrogen/least)))
 
        return render_template("index.html", result="C" + FinalCarbon + "H" + FinalHydrogen + "O" + FinalOxygen)
   return render_template("index.html")
-    
+
 
 @app.route('/')
 def index():
   return render_template("index.html")
 
+
+
+if __name__ == '__main__':
+  app.run(host='0.0.0.0', port=5000)
